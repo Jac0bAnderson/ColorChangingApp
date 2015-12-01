@@ -1,5 +1,7 @@
+// the package of the class
 package activity.ctec.colorchangingapp;
 
+//import section
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,6 +17,12 @@ import android.graphics.Color;
 
 public class ColorChanging extends AppCompatActivity
 {
+    /**
+     * @Author Jake Anderson
+     * @version 1.1
+     * App that changes the background color when clicked
+     */
+    // declaration section
     private Button colorChangeButton;
     private TextView basicText;
     private RelativeLayout background;
@@ -26,9 +34,11 @@ public class ColorChanging extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_changing);
 
+        //initialize
         background = (RelativeLayout) findViewById(R.id.BackgroundColor);
         basicText = (TextView) findViewById(R.id.SillyText);
         colorChangeButton = (Button) findViewById(R.id.sillyButton);
+
         // setupListeners are private
         setupListeners();
     }
@@ -60,21 +70,31 @@ public class ColorChanging extends AppCompatActivity
 
     private void changeBackgroundColor()
     {
+        //local variables to get a random value from 0-225
+        //variables for the backgrounds color
       int redColor;
         int greenColor;
           int blueColor;
 
+        // variables for the buttons color
+        int redColor2;
+        int greenColor2;
+        int blueColor2;
+
+        //gives the value 0-255
       redColor = (int) (Math.random() * 256);
         greenColor = (int) (Math.random() * 256);
         blueColor = (int) (Math.random()* 256);
 
+        // gives background color using the RGB system.
         background.setBackgroundColor(Color.rgb(redColor, greenColor, blueColor));
 
-        redColor = (int) (Math.random()* 256);
-        greenColor =(int) (Math.random()* 256);
-        blueColor = (int) (Math.random()* 256);
-
-        colorChangeButton.setBackgroundColor(Color.rgb(redColor, greenColor, blueColor));
+        //gives the value 0-255
+        redColor2 = (int) (Math.random()* 256);
+        greenColor2 =(int) (Math.random()* 256);
+        blueColor2 = (int) (Math.random()* 256);
+// gives the button a color using the RGB system.
+        colorChangeButton.setBackgroundColor(Color.rgb(redColor2, greenColor2, blueColor2));
 
     }
 
@@ -87,7 +107,7 @@ public class ColorChanging extends AppCompatActivity
            public void onClick(View buttonView)
            {
                //this is where the action happens
-               changeBackgroundColor();
+               changeBackgroundColor();//the method called when the button is clicked.
            }
         });
     }
